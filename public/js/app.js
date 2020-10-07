@@ -37649,7 +37649,7 @@ var render = function() {
                 expression: "form.title"
               }
             ],
-            staticClass: "form-control @error('title') is-invalid @enderror",
+            staticClass: "form-control",
             attrs: {
               type: "text",
               placeholder: "Your activity",

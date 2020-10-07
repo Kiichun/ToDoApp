@@ -2,7 +2,7 @@
     <div>
         <form @submit.prevent="saveData">
             <div class="input-group mb-3">
-                <input v-model="form.title" type="text" class="form-control @error('title') is-invalid @enderror" 
+                <input v-model="form.title" type="text" class="form-control"
                     placeholder="Your activity" aria-label="Your activity" aria-describedby="button-addon2" 
                     @keydown="form.errors.clear('title')" required>
                 <div class="input-group-append">
