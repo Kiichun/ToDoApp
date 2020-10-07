@@ -2,7 +2,7 @@
     <div>
         <form @submit.prevent="saveData">
             <div class="input-group mb-3">
-                <input v-model="form.title" type="text" class="form-control-lg @error('title') is-invalid @enderror" 
+                <input v-model="form.title" type="text" class="form-control @error('title') is-invalid @enderror" 
                     placeholder="Your activity" aria-label="Your activity" aria-describedby="button-addon2" 
                     @keydown="form.errors.clear('title')" required>
                 <div class="input-group-append">
@@ -24,7 +24,9 @@
                             <path d="M9 12l2 2l4 -4" />
                         </svg>
                 </span>
-                <div  class="font-weight-bolder"><span v-if="editmode == false || editmode != todo.id">{{todo.title}}</span><input v-if="editmode == todo.id"   v-model="todo.title" type="text"></div>
+                <div  class="font-weight-bolder"><span v-if="editmode == false || editmode != todo.id">{{todo.title}}</span>
+                    <input v-if="editmode == todo.id" v-model="todo.title" type="text" class="form-control">
+                </div>
                 <div class="ml-auto mr-2 d-flex align-items-center">
                     <span>
                         <svg v-on:click="editmode = todo.id"  v-if="editmode != todo.id" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFC107" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -77,7 +79,7 @@
                 })
             },
             updateTodo(e) {
-                this.edit = false
+                this.editmode = false
                 let data = new FormData();
                 data.append('_method', 'PATCH')
                 data.append('title', e.title)

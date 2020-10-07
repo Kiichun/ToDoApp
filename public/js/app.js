@@ -1965,6 +1965,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1990,7 +1992,7 @@ __webpack_require__.r(__webpack_exports__);
     updateTodo: function updateTodo(e) {
       var _this2 = this;
 
-      this.edit = false;
+      this.editmode = false;
       var data = new FormData();
       data.append('_method', 'PATCH');
       data.append('title', e.title);
@@ -37647,7 +37649,7 @@ var render = function() {
                 expression: "form.title"
               }
             ],
-            staticClass: "form-control-lg @error('title') is-invalid @enderror",
+            staticClass: "form-control @error('title') is-invalid @enderror",
             attrs: {
               type: "text",
               placeholder: "Your activity",
@@ -37765,6 +37767,7 @@ var render = function() {
               _vm.editmode == false || _vm.editmode != todo.id
                 ? _c("span", [_vm._v(_vm._s(todo.title))])
                 : _vm._e(),
+              _vm._v(" "),
               _vm.editmode == todo.id
                 ? _c("input", {
                     directives: [
@@ -37775,6 +37778,7 @@ var render = function() {
                         expression: "todo.title"
                       }
                     ],
+                    staticClass: "form-control",
                     attrs: { type: "text" },
                     domProps: { value: todo.title },
                     on: {
